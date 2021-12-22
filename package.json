@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/GlebLudis/ts-game-of-life#readme",
   "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
     "@types/jest": "^27.0.3",
     "@typescript-eslint/eslint-plugin": "^5.8.0",
     "@typescript-eslint/parser": "^5.8.0",
@@ -31,8 +33,6 @@
     "prettier": "^2.5.1"
   },
   "dependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
     "babel-jest": "^27.4.5",
     "eslint-plugin-jest": "^25.3.0"
