@@ -19,5 +19,11 @@
   "devDependencies": {
     "@types/jest": "^27.0.3",
     "jest": "^27.4.5"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "babel-jest": "^27.4.5"
   }
 }
