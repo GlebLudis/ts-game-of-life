@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/GlebLudis/ts-game-of-life/issues"
   },
-  "homepage": "https://github.com/GlebLudis/ts-game-of-life#readme"
+  "homepage": "https://github.com/GlebLudis/ts-game-of-life#readme",
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "jest": "^27.4.5"
+  }
 }
