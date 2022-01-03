@@ -12,8 +12,9 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   rules: {
     'import/prefer-default-export': 'off',
-    'max-len': ['error', { ignoreComments: true }],
+    'max-len': ['error', { code: 120, ignoreComments: true }],
     'import/no-unresolved': 'off',
     'import/extensions': ['warn', 'never'],
+    'no-param-reassign': 'error',
   },
 };
