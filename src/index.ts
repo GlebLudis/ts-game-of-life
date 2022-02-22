@@ -1,6 +1,8 @@
-import './styles.css';
-import { createGameOfLife } from './createGameOfLife';
+import './styles.scss';
+import { createGameOfLife } from './utils/createGameOfLife';
 
-const app: HTMLElement = document.getElementById('app') as HTMLElement;
+const game: HTMLDivElement = document.createElement('div');
 
-createGameOfLife(app);
+document.body.appendChild(game);
+
+createGameOfLife(10, 10, game);

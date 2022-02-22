@@ -1,36 +1,44 @@
-export interface DrawFieldParams {
-  el: HTMLElement;
-  field: number[][];
-  onCellClick: any;
-}
+export function drawField(
+  htmlElement: HTMLElement,
+  field: number[][],
+  onCellClick: (x: number, y: number) => void,
+) {
+  const rowIterator = (row: number[], rowIndex: number) => `<tr>${row
+    .map((cell: number, columnIndex: number) => {
+      if (cell === 1) {
+        return `<td 
+        data-x=${columnIndex}
+        data-y=${rowIndex}
+        class="cell alive" 
+        ></td>`;
+      }
+      return `<td 
+      data-x=${columnIndex}
+      data-y=${rowIndex}
+      class="cell dead" 
+      ></td>`;
+    })
+    .join('')}</tr>`;
 
-export function drawField({ el, field, onCellClick }: DrawFieldParams) {
-  /* eslint no-param-reassign: "error" */
-  el.innerHTML = '';
-  const table = document.createElement('table');
-  field.forEach((row, y) => {
-    const tr = document.createElement('tr');
-    row.forEach((cell, x) => {
-      const td = document.createElement('td');
-      td.classList.add('cell');
-      td.classList.add(cell === 0 ? 'cell--dead' : 'cell--alive');
-      td.dataset.x = String(x);
-      td.dataset.y = String(y);
-      tr.append(td);
-    });
-    table.append(tr);
-  });
+  const table = `<table border=1>${field.map(rowIterator).join('')}</table>`;
 
-  table.addEventListener('click', (evt) => {
-    const element = evt.target as HTMLElement;
-    if (element.classList.contains('cell')) {
-      const isAlive = element.classList.contains('cell--alive');
-      onCellClick(
-        Number(element.dataset.x),
-        Number(element.dataset.y),
-        isAlive,
-      );
-    }
-  });
-  el.append(table);
+  htmlElement.innerHTML = table;
+
+  (htmlElement.querySelector('table') as HTMLElement).addEventListener(
+    'click',
+    (ev: Event) => {
+      const clickedElement = ev.target as HTMLDivElement;
+
+      if (!clickedElement) {
+        throw Error;
+      }
+
+      const x = clickedElement.getAttribute('data-x');
+      const y = clickedElement.getAttribute('data-y');
+
+      if (Number(x) >= 0 && Number(y) >= 0) {
+        onCellClick(Number(x), Number(y));
+      }
+    },
+  );
 }

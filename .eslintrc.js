@@ -1,7 +1,11 @@
 module.exports = {
+  globals: {
+    NodeJS: true,
+  },
   env: {
     browser: true,
     es2021: true,
+    jest: true,
   },
   extends: ['airbnb-base'],
   parser: '@typescript-eslint/parser',
@@ -15,6 +19,7 @@ module.exports = {
     'max-len': ['error', { code: 120, ignoreComments: true }],
     'import/no-unresolved': 'off',
     'import/extensions': ['warn', 'never'],
-    'no-param-reassign': 'error',
+    'no-unused-vars': 'off',
+    'no-param-reassign': 0,
   },
 };
