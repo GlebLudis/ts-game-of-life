@@ -48,7 +48,6 @@ export function createGameOfLife(
       field = getNextState(field);
       drawField(fieldWrapper, field, cellClickHandler);
       if (!isAnyoneAlive(field)) {
-        alert('All cells died');
         stopGame();
       }
     }, speed);
